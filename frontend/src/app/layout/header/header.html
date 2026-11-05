@@ -33,6 +33,28 @@
 
 
         <!-- ASZTALI CTA -->
+
+        <!-- ASZTALI FIÓK MŰVELETEK -->
+        <div class="header-actions">
+
+            <a routerLink="/login" class="header-login">
+                Bejelentkezés
+            </a>
+
+            <a routerLink="/register" class="header-cta">
+                <span>Fiók létrehozása</span>
+
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7H17V17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
+            </a>
+
+        </div>
+
+
+        <!--
         <div class="header-actions">
 
             <a href="#felfedezes" class="header-cta">
@@ -46,7 +68,7 @@
             </a>
 
         </div>
-
+        -->
 
         <!-- MOBIL MENÜ GOMB -->
         <button class="mobile-menu-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()"
@@ -87,12 +109,26 @@
             Rólunk
         </a>
 
-        <a class="mobile-cta" href="#felfedezes" (click)="closeMenu()">
-            Fedezd fel a Vestyt
+
+        <a class="mobile-login" routerLink="/login" (click)="closeMenu()">
+            Már van fiókod? Bejelentkezés
+        </a>
+
+        <a class="mobile-cta" routerLink="/register" (click)="closeMenu()">
+            Fiók létrehozása
 
             <span aria-hidden="true">↗</span>
         </a>
 
+
+        <!--
+        <a class="mobile-cta" href="#felfedezes" (click)="closeMenu()">
+            
+            Fedezd fel a Vestyt
+            <span aria-hidden="true">↗</span>
+            
+        </a>
+        -->
     </nav>
 
     }

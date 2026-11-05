@@ -1,0 +1,355 @@
+<section class="auth-page container">
+
+    <div class="auth-editorial">
+
+        <a routerLink="/" class="auth-brand" aria-label="Vesty kezdőlap">
+            vesty<span>.</span>
+        </a>
+
+
+        <div class="auth-editorial-copy">
+
+            <p class="eyebrow">
+                THE VESTY SPACE
+            </p>
+
+            <h1>
+                Az öltözködés
+                <br>
+                lehet
+                <em>önkifejezés.</em>
+            </h1>
+
+            <p>
+                Fedezd fel a saját stílusod, rendszerezd
+                ruháidat, és építs egy gardróbot, amely
+                valóban rólad szól.
+            </p>
+
+        </div>
+
+        <div class="auth-editorial-art" aria-hidden="true">
+
+            <div class="art-circle"></div>
+            <div class="art-ring"></div>
+
+            <span class="art-word art-word-one">
+                YOUR
+            </span>
+
+            <span class="art-word art-word-two">
+                STYLE
+            </span>
+
+            <span class="art-caption">
+                CURATED BY YOU
+            </span>
+
+        </div>
+
+
+        <div class="auth-editorial-footer">
+
+            <span>VESTY / DIGITAL WARDROBE</span>
+
+            <span>EST. 2026</span>
+
+        </div>
+
+    </div>
+
+    <div class="auth-panel">
+
+        <div class="auth-form-wrap">
+
+
+            <!-- Register section -->
+
+            @if (mode === 'register') {
+
+            <div class="auth-heading">
+
+                <p class="eyebrow">
+                    JOIN THE COMMUNITY
+                </p>
+
+                <h2 id="auth-title">
+                    Legyen a stílusod
+                    <em>egyedi.</em>
+                </h2>
+
+                <p>
+                    Hozd létre saját Vesty-fiókodat,
+                    és fedezd fel a digitális gardrób világát.
+                </p>
+
+            </div>
+
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+                <div class="form-field">
+
+                    <label for="displayName">
+                        Megjelenítendő név
+                    </label>
+
+                    <input id="displayName" type="text" formControlName="displayName" placeholder="Hogyan szólítsunk?"
+                        autocomplete="nickname"
+                        [attr.aria-invalid]="registerForm.controls.displayName.invalid && registerForm.controls.displayName.touched">
+
+                    @if (
+                    registerForm.controls.displayName.touched &&
+                    registerForm.controls.displayName.hasError('required')
+                    ) {
+                    <span class="field-error">
+                        A név megadása kötelező.
+                    </span>
+                    }
+
+                    @if (
+                    registerForm.controls.displayName.touched &&
+                    registerForm.controls.displayName.hasError('minlength')
+                    ) {
+                    <span class="field-error">
+                        Legalább 2 karakter szükséges.
+                    </span>
+                    }
+
+                </div>
+
+                <div class="form-field">
+
+                    <label for="registerEmail">
+                        E-mail-cím
+                    </label>
+
+                    <input id="registerEmail" type="email" formControlName="email" placeholder="pelda@email.com"
+                        autocomplete="email"
+                        [attr.aria-invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched">
+
+                    @if (
+                    registerForm.controls.email.touched &&
+                    registerForm.controls.email.invalid
+                    ) {
+                    <span class="field-error">
+                        Kérjük, adj meg egy érvényes e-mail-címet.
+                    </span>
+                    }
+
+                </div>
+
+                <div class="form-field">
+
+                    <label for="registerPassword">
+                        Jelszó
+                    </label>
+
+                    <div class="password-input">
+
+                        <input id="registerPassword" [type]="showPassword() ? 'text' : 'password'"
+                            formControlName="password" placeholder="Legalább 8 karakter" autocomplete="new-password"
+                            [attr.aria-invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+
+                        <button type="button" class="password-toggle" (click)="togglePasswordVisibility()"
+                            [attr.aria-label]="showPassword() ? 'Jelszó elrejtése' : 'Jelszó megjelenítése'">
+                            {{ showPassword() ? 'Elrejt' : 'Mutat' }}
+                        </button>
+
+                    </div>
+
+                    @if (
+                    registerForm.controls.password.touched &&
+                    registerForm.controls.password.hasError('required')
+                    ) {
+                    <span class="field-error">
+                        A jelszó megadása kötelező.
+                    </span>
+                    }
+
+                    @if (
+                    registerForm.controls.password.touched &&
+                    registerForm.controls.password.hasError('minlength')
+                    ) {
+                    <span class="field-error">
+                        A jelszónak legalább 8 karakteresnek kell lennie.
+                    </span>
+                    }
+
+                </div>
+
+                <div class="form-field">
+
+                    <label for="passwordConfirm">
+                        Jelszó megerősítése
+                    </label>
+
+                    <input id="passwordConfirm" [type]="showPassword() ? 'text' : 'password'"
+                        formControlName="passwordConfirm" placeholder="Írd be újra a jelszavad"
+                        autocomplete="new-password"
+                        [attr.aria-invalid]="registerForm.controls.passwordConfirm.invalid && registerForm.controls.passwordConfirm.touched">
+
+                    @if (
+                    registerForm.controls.passwordConfirm.touched &&
+                    registerForm.controls.passwordConfirm.hasError('required')
+                    ) {
+                    <span class="field-error">
+                        Kérjük, erősítsd meg a jelszavad.
+                    </span>
+                    }
+
+                    @if (
+                    registerForm.hasError('passwordMismatch') &&
+                    registerForm.controls.passwordConfirm.touched
+                    ) {
+                    <span class="field-error">
+                        A két jelszó nem egyezik meg.
+                    </span>
+                    }
+
+                </div>
+
+
+                <button type="submit" class="auth-submit">
+                    Fiók létrehozása
+
+                    <span aria-hidden="true">↗</span>
+                </button>
+
+            </form>
+
+
+            <p class="auth-switch">
+                Már van fiókod?
+
+                <a routerLink="/login">
+                    Jelentkezz be
+                </a>
+            </p>
+
+            }
+
+            @else {
+
+            <div class="auth-heading">
+
+                <p class="eyebrow">
+                    WELCOME BACK
+                </p>
+
+                <h2 id="auth-title">
+                    Jó újra
+                    <em>látni.</em>
+                </h2>
+
+                <p>
+                    Jelentkezz be, és folytasd a saját
+                    stílusod építését.
+                </p>
+
+            </div>
+
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+                <!-- EMAIL -->
+                <div class="form-field">
+
+                    <label for="loginEmail">
+                        E-mail-cím
+                    </label>
+
+                    <input id="loginEmail" type="email" formControlName="email" placeholder="pelda@email.com"
+                        autocomplete="email"
+                        [attr.aria-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+
+                    @if (
+                    loginForm.controls.email.touched &&
+                    loginForm.controls.email.invalid
+                    ) {
+                    <span class="field-error">
+                        Kérjük, adj meg egy érvényes e-mail-címet.
+                    </span>
+                    }
+
+                </div>
+
+                <div class="form-field">
+
+                    <label for="loginPassword">
+                        Jelszó
+                    </label>
+
+                    <div class="password-input">
+
+                        <input id="loginPassword" [type]="showPassword() ? 'text' : 'password'"
+                            formControlName="password" placeholder="Add meg a jelszavad" autocomplete="current-password"
+                            [attr.aria-invalid]="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+
+                        <button type="button" class="password-toggle" (click)="togglePasswordVisibility()"
+                            [attr.aria-label]="showPassword() ? 'Jelszó elrejtése' : 'Jelszó megjelenítése'">
+                            {{ showPassword() ? 'Elrejt' : 'Mutat' }}
+                        </button>
+
+                    </div>
+
+                    @if (
+                    loginForm.controls.password.touched &&
+                    loginForm.controls.password.hasError('required')
+                    ) {
+                    <span class="field-error">
+                        A jelszó megadása kötelező.
+                    </span>
+                    }
+
+                    @if (
+                    loginForm.controls.password.touched &&
+                    loginForm.controls.password.hasError('minlength')
+                    ) {
+                    <span class="field-error">
+                        A jelszónak legalább 8 karakteresnek kell lennie.
+                    </span>
+                    }
+
+                </div>
+
+
+                <button type="submit" class="auth-submit">
+                    Bejelentkezés
+
+                    <span aria-hidden="true">↗</span>
+                </button>
+
+            </form>
+
+
+            <p class="auth-switch">
+                Még nincs Vesty-fiókod?
+
+                <a routerLink="/register">
+                    Regisztrálj
+                </a>
+            </p>
+
+            }
+
+            @if (notice()) {
+
+            <div class="form-notice" role="status">
+                {{ notice() }}
+            </div>
+
+            }
+
+            <p class="auth-disclaimer">
+                Jelenleg bemutató felület. A megadott adatok
+                nem kerülnek elküldésre, a valódi fiókkezelést
+                később a saját backend végzi majd.
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>

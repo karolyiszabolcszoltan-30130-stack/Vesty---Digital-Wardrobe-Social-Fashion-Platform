@@ -312,3 +312,43 @@
     animation: none;
   }
 }
+
+/*
+Fiokmuvelethez valo stilus
+*/
+
+.header-actions {
+  gap: 22px;
+  align-items: center;
+}
+
+.header-login {
+  color: var(--color-text-soft);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  transition: color var(--transition-fast);
+}
+
+.header-login:hover {
+  color: var(--color-accent-dark);
+}
+
+.mobile-nav .mobile-login {
+  justify-content: center;
+
+  padding: 18px 0 8px;
+
+  border: none;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.mobile-nav .mobile-login:hover {
+  color: var(--color-accent-dark);
+}
