@@ -1,0 +1,100 @@
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <!-- VESTY logo - kerdeses -->
+        <a class="brand" href="/" aria-label="Vesty kezdőlap" (click)="closeMenu()">
+            <span class="brand-name">vesty<span>.</span></span>
+
+            <span class="brand-subtitle">
+                DIGITAL WARDROBE
+            </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Fő navigáció">
+
+            <a href="#felfedezes">
+                Felfedezés
+            </a>
+
+            <a href="#gardrob">
+                Digitális gardrób
+            </a>
+
+            <a href="#kozosseg">
+                Közösség
+            </a>
+
+            <a href="#rolunk">
+                Rólunk
+            </a>
+
+        </nav>
+
+
+        <!-- ASZTALI CTA -->
+        <div class="header-actions">
+
+            <a href="#felfedezes" class="header-cta">
+                <span>Fedezd fel</span>
+
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7H17V17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
+            </a>
+
+        </div>
+
+
+        <!-- MOBIL MENÜ GOMB -->
+        <button class="mobile-menu-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()"
+            aria-controls="mobile-navigation" [attr.aria-label]="isMenuOpen() ? 'Menü bezárása' : 'Menü megnyitása'">
+
+            <span class="menu-icon" [class.menu-open]="isMenuOpen()" aria-hidden="true">
+                <span></span>
+                <span></span>
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBIL NAV -->
+    @if (isMenuOpen()) {
+
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobil navigáció">
+
+        <a href="#felfedezes" (click)="closeMenu()">
+            <span>01</span>
+            Felfedezés
+        </a>
+
+        <a href="#gardrob" (click)="closeMenu()">
+            <span>02</span>
+            Digitális gardrób
+        </a>
+
+        <a href="#kozosseg" (click)="closeMenu()">
+            <span>03</span>
+            Közösség
+        </a>
+
+        <a href="#rolunk" (click)="closeMenu()">
+            <span>04</span>
+            Rólunk
+        </a>
+
+        <a class="mobile-cta" href="#felfedezes" (click)="closeMenu()">
+            Fedezd fel a Vestyt
+
+            <span aria-hidden="true">↗</span>
+        </a>
+
+    </nav>
+
+    }
+
+</header>
