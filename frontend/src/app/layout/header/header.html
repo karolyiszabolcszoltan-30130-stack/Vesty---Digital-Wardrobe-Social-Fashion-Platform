@@ -13,20 +13,32 @@
 
         <nav class="desktop-nav" aria-label="Fő navigáció">
 
-            <a href="#felfedezes">
+            <a routerLink="/felfedezes">
                 Felfedezés
             </a>
 
-            <a href="#gardrob">
+            <a routerLink="/gardrob">
                 Digitális gardrób
             </a>
 
-            <a href="#kozosseg">
+            <a routerLink="/kozosseg">
                 Közösség
             </a>
 
-            <a href="#rolunk">
+            <a routerLink="/rolunk">
                 Rólunk
+            </a>
+
+            <a routerLink="/kuponvadasz">
+                Kuponvadász
+            </a>
+
+            <a routerLink="/ruhapiac">
+                Ruhapiac
+            </a>
+
+            <a routerLink="/esemenyek">
+                Események
             </a>
 
         </nav>
@@ -43,12 +55,6 @@
 
             <a routerLink="/register" class="header-cta">
                 <span>Fiók létrehozása</span>
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M7 17L17 7M7 7H17V17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-
             </a>
 
         </div>
@@ -89,24 +95,39 @@
 
     <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobil navigáció">
 
-        <a href="#felfedezes" (click)="closeMenu()">
+        <a routerLink="/felfedezes" (click)="closeMenu()">
             <span>01</span>
             Felfedezés
         </a>
 
-        <a href="#gardrob" (click)="closeMenu()">
+        <a routerLink="/gardrob" (click)="closeMenu()">
             <span>02</span>
             Digitális gardrób
         </a>
 
-        <a href="#kozosseg" (click)="closeMenu()">
+        <a routerLink="/kozosseg" (click)="closeMenu()">
             <span>03</span>
             Közösség
         </a>
 
-        <a href="#rolunk" (click)="closeMenu()">
+        <a routerLink="/rolunk" (click)="closeMenu()">
             <span>04</span>
             Rólunk
+        </a>
+
+        <a routerLink="/kuponvadasz" (click)="closeMenu()">
+            <span>05</span>
+            Kuponvadász
+        </a>
+
+        <a routerLink="/ruhapiac" (click)="closeMenu()">
+            <span>06</span>
+            Ruhapiac
+        </a>
+
+        <a routerLink="/esemenyek" (click)="closeMenu()">
+            <span>07</span>
+            Események
         </a>
 
 
@@ -116,8 +137,6 @@
 
         <a class="mobile-cta" routerLink="/register" (click)="closeMenu()">
             Fiók létrehozása
-
-            <span aria-hidden="true">↗</span>
         </a>
 
 
