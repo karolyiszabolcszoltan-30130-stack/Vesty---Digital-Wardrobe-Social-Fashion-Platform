@@ -6,8 +6,7 @@
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.05fr)
-    minmax(0, 0.95fr);
+    minmax(0, 1.05fr) minmax(0, 0.95fr);
 
   gap: clamp(2rem, 5vw, 5rem);
 
@@ -96,88 +95,6 @@
 
   font-size: 0.9rem;
   line-height: 1.9;
-}
-
-.auth-editorial-art {
-  position: absolute;
-  z-index: -1;
-
-  top: 50%;
-  right: -120px;
-
-  width: 470px;
-  height: 470px;
-
-  transform: translateY(-50%);
-}
-
-.art-circle {
-  position: absolute;
-
-  top: 65px;
-  left: 65px;
-
-  width: 300px;
-  height: 300px;
-
-  border-radius: 50%;
-
-  background: var(--color-accent-dark);
-
-  opacity: 0.65;
-}
-
-.art-ring {
-  position: absolute;
-
-  top: 10px;
-  left: 10px;
-
-  width: 410px;
-  height: 410px;
-
-  border: 1px solid rgba(214, 237, 118, 0.35);
-
-  border-radius: 50%;
-}
-
-.art-word {
-  position: absolute;
-
-  color: rgba(252, 251, 248, 0.16);
-
-  font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 700;
-
-  letter-spacing: -0.08em;
-}
-
-.art-word-one {
-  top: 110px;
-  left: 65px;
-}
-
-.art-word-two {
-  top: 195px;
-  left: 115px;
-
-  color: var(--color-accent);
-  opacity: 0.8;
-}
-
-.art-caption {
-  position: absolute;
-
-  right: 95px;
-  bottom: 65px;
-
-  color: var(--color-accent);
-
-  font-size: 0.6rem;
-  font-weight: 700;
-
-  letter-spacing: 0.2em;
 }
 
 .auth-editorial-footer {
@@ -423,6 +340,41 @@
   text-align: center;
 }
 
+.auth-editorial-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.auth-fashion-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: blur(8px);
+  transform: scale(1.04);
+}
+
+.auth-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(135deg,
+      rgba(35, 35, 35, 0.72),
+      rgba(35, 35, 35, 0.48),
+      rgba(35, 35, 35, 0.68));
+}
+
 @media (max-width: 1000px) {
 
   .auth-page {
@@ -436,7 +388,9 @@
   }
 
   .auth-editorial-art {
-    right: -100px;
+    top: 55%;
+    right: -230px;
+    transform: translateY(-50%) scale(0.8);
   }
 
   .auth-editorial-copy {
